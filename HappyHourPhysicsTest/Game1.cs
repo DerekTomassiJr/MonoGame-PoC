@@ -1,6 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿using HappyHourPhysicsTest.Components;
+using HappyHourPhysicsTest.Utilities;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace HappyHourPhysicsTest
 {
@@ -8,6 +11,10 @@ namespace HappyHourPhysicsTest
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        private TextureAtlas backgroundTextures;
+        private TextureAtlas itemTextures;
+        private Level activeLevel;
+
 
         public Game1()
         {
@@ -18,7 +25,10 @@ namespace HappyHourPhysicsTest
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            _graphics.IsFullScreen = false;
+            _graphics.PreferredBackBufferWidth = 960;
+            _graphics.PreferredBackBufferHeight = 640;
+            _graphics.ApplyChanges();
 
             base.Initialize();
         }
@@ -27,7 +37,13 @@ namespace HappyHourPhysicsTest
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            Texture2D itemTiles = Content.Load<Texture2D>(Constants.ITEM_ASSETS_FILE);
+            Texture2D blockTiles = Content.Load<Texture2D>(Constants.BLOCK_ASSETS_FILE);
+
+            backgroundTextures = new TextureAtlas(blockTiles, 32, 32);
+            itemTextures = new TextureAtlas(itemTiles, 32, 32);
+
+            activeLevel = new Level("Drink Pour", "../../../Content/Level1.csv", this.backgroundTextures);
         }
 
         protected override void Update(GameTime gameTime)
@@ -42,9 +58,11 @@ namespace HappyHourPhysicsTest
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
-            // TODO: Add your drawing code here
+            _spriteBatch.Begin();
+            this.activeLevel.DrawLevel(_spriteBatch);
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }

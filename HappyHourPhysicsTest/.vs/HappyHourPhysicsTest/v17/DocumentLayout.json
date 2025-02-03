@@ -7,6 +7,26 @@
       "RelativeMoniker": "D:0:0:{70F43F29-2D0F-41C9-94E9-C70665DEC5C7}|HappyHourPhysicsTest.csproj|solutionrelative:game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{70F43F29-2D0F-41C9-94E9-C70665DEC5C7}|HappyHourPhysicsTest.csproj|d:\\game projects\\happyhour_poc\\happyhourphysicstest\\components\\level.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70F43F29-2D0F-41C9-94E9-C70665DEC5C7}|HappyHourPhysicsTest.csproj|solutionrelative:components\\level.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70F43F29-2D0F-41C9-94E9-C70665DEC5C7}|HappyHourPhysicsTest.csproj|d:\\game projects\\happyhour_poc\\happyhourphysicstest\\content\\level1.csv||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{70F43F29-2D0F-41C9-94E9-C70665DEC5C7}|HappyHourPhysicsTest.csproj|solutionrelative:content\\level1.csv||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70F43F29-2D0F-41C9-94E9-C70665DEC5C7}|HappyHourPhysicsTest.csproj|d:\\game projects\\happyhour_poc\\happyhourphysicstest\\utilities\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70F43F29-2D0F-41C9-94E9-C70665DEC5C7}|HappyHourPhysicsTest.csproj|solutionrelative:utilities\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70F43F29-2D0F-41C9-94E9-C70665DEC5C7}|HappyHourPhysicsTest.csproj|d:\\game projects\\happyhour_poc\\happyhourphysicstest\\utilities\\spritetile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70F43F29-2D0F-41C9-94E9-C70665DEC5C7}|HappyHourPhysicsTest.csproj|solutionrelative:utilities\\spritetile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70F43F29-2D0F-41C9-94E9-C70665DEC5C7}|HappyHourPhysicsTest.csproj|d:\\game projects\\happyhour_poc\\happyhourphysicstest\\utilities\\textureatlas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70F43F29-2D0F-41C9-94E9-C70665DEC5C7}|HappyHourPhysicsTest.csproj|solutionrelative:utilities\\textureatlas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{70F43F29-2D0F-41C9-94E9-C70665DEC5C7}|HappyHourPhysicsTest.csproj|d:\\game projects\\happyhour_poc\\happyhourphysicstest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{70F43F29-2D0F-41C9-94E9-C70665DEC5C7}|HappyHourPhysicsTest.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -18,11 +38,74 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Level1.csv",
+              "DocumentMoniker": "D:\\Game Projects\\HappyHour_POC\\HappyHourPhysicsTest\\Content\\Level1.csv",
+              "RelativeDocumentMoniker": "Content\\Level1.csv",
+              "ToolTip": "D:\\Game Projects\\HappyHour_POC\\HappyHourPhysicsTest\\Content\\Level1.csv",
+              "RelativeToolTip": "Content\\Level1.csv",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
+              "WhenOpened": "2025-02-03T21:50:30.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Level.cs",
+              "DocumentMoniker": "D:\\Game Projects\\HappyHour_POC\\HappyHourPhysicsTest\\Components\\Level.cs",
+              "RelativeDocumentMoniker": "Components\\Level.cs",
+              "ToolTip": "D:\\Game Projects\\HappyHour_POC\\HappyHourPhysicsTest\\Components\\Level.cs",
+              "RelativeToolTip": "Components\\Level.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAD4vycAAABkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-03T21:47:57.533Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Constants.cs",
+              "DocumentMoniker": "D:\\Game Projects\\HappyHour_POC\\HappyHourPhysicsTest\\Utilities\\Constants.cs",
+              "RelativeDocumentMoniker": "Utilities\\Constants.cs",
+              "ToolTip": "D:\\Game Projects\\HappyHour_POC\\HappyHourPhysicsTest\\Utilities\\Constants.cs",
+              "RelativeToolTip": "Utilities\\Constants.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-03T21:28:08.74Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TextureAtlas.cs",
+              "DocumentMoniker": "D:\\Game Projects\\HappyHour_POC\\HappyHourPhysicsTest\\Utilities\\TextureAtlas.cs",
+              "RelativeDocumentMoniker": "Utilities\\TextureAtlas.cs",
+              "ToolTip": "D:\\Game Projects\\HappyHour_POC\\HappyHourPhysicsTest\\Utilities\\TextureAtlas.cs",
+              "RelativeToolTip": "Utilities\\TextureAtlas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-03T21:27:02.339Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SpriteTile.cs",
+              "DocumentMoniker": "D:\\Game Projects\\HappyHour_POC\\HappyHourPhysicsTest\\Utilities\\SpriteTile.cs",
+              "RelativeDocumentMoniker": "Utilities\\SpriteTile.cs",
+              "ToolTip": "D:\\Game Projects\\HappyHour_POC\\HappyHourPhysicsTest\\Utilities\\SpriteTile.cs",
+              "RelativeToolTip": "Utilities\\SpriteTile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-03T21:26:50.969Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Game Projects\\HappyHour_POC\\HappyHourPhysicsTest\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -40,7 +123,7 @@
               "RelativeDocumentMoniker": "Game1.cs",
               "ToolTip": "D:\\Game Projects\\HappyHour_POC\\HappyHourPhysicsTest\\Game1.cs",
               "RelativeToolTip": "Game1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAAwDwAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-01T03:33:31.167Z",
               "EditorCaption": ""

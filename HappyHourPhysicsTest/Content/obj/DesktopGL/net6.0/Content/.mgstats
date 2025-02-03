@@ -1,1 +1,3 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"D:/Game Projects/HappyHour_POC/HappyHourPhysicsTest/Content/ItemsMobA.png","D:/Game Projects/HappyHour_POC/HappyHourPhysicsTest/Content/bin/DesktopGL/Content/ItemsMobA.xnb","TextureProcessor","Texture2DContent",8305,122965,0.1092938
+"D:/Game Projects/HappyHour_POC/HappyHourPhysicsTest/Content/MCBlocksColorOutline.png","D:/Game Projects/HappyHour_POC/HappyHourPhysicsTest/Content/bin/DesktopGL/Content/MCBlocksColorOutline.xnb","TextureProcessor","Texture2DContent",553073,4792405,0.1374064

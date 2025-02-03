@@ -23,3 +23,9 @@ D:\Game Projects\HappyHour_POC\HappyHourPhysicsTest\obj\Debug\net6.0\refint\Happ
 D:\Game Projects\HappyHour_POC\HappyHourPhysicsTest\obj\Debug\net6.0\HappyHourPhysicsTest.pdb
 D:\Game Projects\HappyHour_POC\HappyHourPhysicsTest\obj\Debug\net6.0\HappyHourPhysicsTest.genruntimeconfig.cache
 D:\Game Projects\HappyHour_POC\HappyHourPhysicsTest\obj\Debug\net6.0\ref\HappyHourPhysicsTest.dll
+D:\Game Projects\HappyHour_POC\HappyHourPhysicsTest\obj\Debug\net6.0\HappyHourPhysicsTest.sourcelink.json
+D:\Game Projects\HappyHour_POC\HappyHourPhysicsTest\bin\Debug\net6.0\Content\ItemsMobA.png
+D:\Game Projects\HappyHour_POC\HappyHourPhysicsTest\bin\Debug\net6.0\Content\Level1.csv
+D:\Game Projects\HappyHour_POC\HappyHourPhysicsTest\bin\Debug\net6.0\Content\MCBlocksColorOutline.png
+D:\Game Projects\HappyHour_POC\HappyHourPhysicsTest\bin\Debug\net6.0\Content\ItemsMobA.xnb
+D:\Game Projects\HappyHour_POC\HappyHourPhysicsTest\bin\Debug\net6.0\Content\MCBlocksColorOutline.xnb

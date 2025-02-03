@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HappyHourPhysicsTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2f8e50dd7dbe4c1a1ba595c9c961b0ac064ffd7c")]
 [assembly: System.Reflection.AssemblyProductAttribute("HappyHourPhysicsTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HappyHourPhysicsTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
