@@ -11,6 +11,8 @@
     /// </summary>
     public class TextureAtlas
     {
+        public Game game;
+        
         /// <summary>
         /// Gets the texture that we are using as an Atlas to pull sprites from.
         /// </summary>
@@ -69,6 +71,7 @@
                 throw new ArgumentException("The spriteWidth and spriteHeight arguments must be a valid integer greater than 0.");
             }
 
+            
             Texture = content.Load<Texture2D>(texturePath);
             SpriteWidth = spriteWidth;
             SpriteHeight = spriteHeight;
@@ -80,7 +83,7 @@
         /// <param name="texture">The texture that was loaded in.</param>
         /// <param name="spriteWidth">The width of the sprites that are found within the atlas.</param>
         /// <param name="spriteHeight">The height of the sprites that are found within the atlas.</param>
-        public TextureAtlas(Texture2D texture, ushort spriteWidth, ushort spriteHeight)
+        public TextureAtlas(Game game, Texture2D texture, ushort spriteWidth, ushort spriteHeight)
         {
             ArgumentNullException.ThrowIfNull(texture);
 
@@ -89,6 +92,7 @@
                 throw new ArgumentException("The spriteWidth and spriteHeight arguments must be a valid integer greater than 0.");
             }
 
+            this.game = game;
             Texture = texture;
             SpriteWidth = spriteWidth;
             SpriteHeight = spriteHeight;
@@ -134,7 +138,7 @@
             Texture2D spriteTexture = new Texture2D(graphicsDevice, spriteBox.Width, spriteBox.Height);
             spriteTexture.SetData(data);
 
-            return new SpriteObject(spriteTexture, spriteBox);
+            return new SpriteObject(this.game, spriteTexture, spriteBox);
         }
     }
 }

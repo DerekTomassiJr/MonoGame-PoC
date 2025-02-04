@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace HappyHourPhysicsTest.Utilities
 {
-    public class SpriteObject
+    public class SpriteObject : GameComponent
     {
         public Texture2D spriteTexture;
         public Rectangle collisionBox;
         public Vector2 position;
         public bool isVisible;
 
-        public SpriteObject(Texture2D spriteTexture, Rectangle collisionBox) 
+        public SpriteObject(Game game, Texture2D spriteTexture, Rectangle collisionBox) : base(game)
         { 
             this.spriteTexture = spriteTexture;
             this.collisionBox = collisionBox;
@@ -30,6 +30,16 @@ namespace HappyHourPhysicsTest.Utilities
             }
 
             spriteBatch.Draw(this.spriteTexture, this.position, Color.White);
+        }
+
+        public override void Update(GameTime gameTime) 
+        {
+            if (!this.collisionBox.Intersects(new Rectangle(0,640,960,640)))
+            {
+                this.position.Y += 5;
+            }
+            
+            base.Update(gameTime);
         }
     }
 }
