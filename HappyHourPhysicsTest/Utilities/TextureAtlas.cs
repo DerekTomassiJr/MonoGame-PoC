@@ -1,9 +1,10 @@
 ﻿namespace HappyHourPhysicsTest.Utilities
 {
     using System;
-    using System.Numerics;
+    using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
+    using Vector2 = System.Numerics.Vector2;
 
     /// <summary>
     /// A data class to store and manage multiple sprites from a single texture.
@@ -120,6 +121,20 @@
             int spriteYPosition = row * SpriteHeight;
 
             return new Vector2(spriteXPosition, spriteYPosition);
+        }
+
+        public SpriteObject GenerateSpriteObjectFromAtlas(int id, GraphicsDevice graphicsDevice)
+        {
+            Vector2 spritePosition = GetSpritePositionInAtlas(id);
+            Rectangle spriteBox = new Rectangle((int)spritePosition.X, (int)spritePosition.Y, 32, 32);
+
+            Color[] data = new Color[spriteBox.Width * spriteBox.Height];
+            this.Texture.GetData(0, spriteBox, data, 0, data.Length);
+
+            Texture2D spriteTexture = new Texture2D(graphicsDevice, spriteBox.Width, spriteBox.Height);
+            spriteTexture.SetData(data);
+
+            return new SpriteObject(spriteTexture, spriteBox);
         }
     }
 }

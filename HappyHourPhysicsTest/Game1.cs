@@ -13,6 +13,8 @@ namespace HappyHourPhysicsTest
         private SpriteBatch _spriteBatch;
         private TextureAtlas backgroundTextures;
         private TextureAtlas itemTextures;
+        private SpriteObject ballSprite;
+        private List<SpriteObject> ballSprites;
         private Level activeLevel;
 
 
@@ -43,6 +45,8 @@ namespace HappyHourPhysicsTest
             backgroundTextures = new TextureAtlas(blockTiles, 32, 32);
             itemTextures = new TextureAtlas(itemTiles, 32, 32);
 
+            ballSprite = this.itemTextures.GenerateSpriteObjectFromAtlas(7, GraphicsDevice);
+            ballSprites = new List<SpriteObject>();
             activeLevel = new Level("Drink Pour", "../../../Content/Level1.csv", this.backgroundTextures);
         }
 
@@ -51,7 +55,12 @@ namespace HappyHourPhysicsTest
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            if (Keyboard.GetState().IsKeyDown(Keys.S))
+            {
+                SpriteObject newBall = new SpriteObject(ballSprite.spriteTexture, ballSprite.collisionBox); // this needs to be reoptimized
+                newBall.isVisible = true;
+                ballSprites.Add(newBall); 
+            }
 
             base.Update(gameTime);
         }
@@ -62,9 +71,18 @@ namespace HappyHourPhysicsTest
 
             _spriteBatch.Begin();
             this.activeLevel.DrawLevel(_spriteBatch);
+            this.drawSpriteObjects();
             _spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        private void drawSpriteObjects() 
+        { 
+            foreach (SpriteObject spriteObject in ballSprites)
+            {
+                spriteObject.DrawSpriteObject(_spriteBatch);
+            }
         }
     }
 }
