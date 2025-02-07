@@ -62,6 +62,17 @@ namespace HappyHourPhysicsTest
                 ballSprites.Add(newBall); 
             }
 
+            // Remove balls that fall off screen
+            for (int i = 0; i < ballSprites.Count; i++)
+            {
+                SpriteObject spriteObject = ballSprites[i];
+                
+                if (spriteObject.position.Y > _graphics.PreferredBackBufferHeight || spriteObject.position.X > _graphics.PreferredBackBufferWidth)
+                {
+                    ballSprites.Remove(spriteObject);
+                }
+            }
+
 
             base.Update(gameTime);
         }
