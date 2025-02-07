@@ -17,9 +17,6 @@ namespace HappyHourPhysicsTest
         private List<SpriteObject> ballSprites;
         private Level activeLevel;
 
-        private Rectangle testBox;
-        private Texture2D testBoxTexture;
-
 
         public Game1()
         {
@@ -50,11 +47,7 @@ namespace HappyHourPhysicsTest
 
             ballSprite = this.itemTextures.GenerateSpriteObjectFromAtlas(7, GraphicsDevice);
             ballSprites = new List<SpriteObject>();
-            activeLevel = new Level("Drink Pour", "../../../Content/Level1.csv", this.backgroundTextures);
-
-            testBox = new Rectangle(0, 500, 960, 30);
-            testBoxTexture = new Texture2D(GraphicsDevice, 960, 30);
-            CreateBorder(testBoxTexture, 5, Color.Red);
+            activeLevel = new Level("Drink Pour", "../../../Content/Level1.csv", this.backgroundTextures, GraphicsDevice);
         }
 
         protected override void Update(GameTime gameTime)
@@ -64,7 +57,7 @@ namespace HappyHourPhysicsTest
 
             if (Keyboard.GetState().IsKeyDown(Keys.S))
             {
-                SpriteObject newBall = new SpriteObject(this, ballSprite.spriteTexture, ballSprite.collisionBox); // this needs to be reoptimized
+                SpriteObject newBall = new SpriteObject(this, ballSprite.spriteTexture, ballSprite.collisionBox, this.activeLevel.objectSpawnRectangle); // this needs to be reoptimized
                 newBall.isVisible = true;
                 ballSprites.Add(newBall); 
             }
@@ -90,17 +83,20 @@ namespace HappyHourPhysicsTest
         {
             foreach (SpriteObject spriteObject in ballSprites)
             {
-                if (!spriteObject.collisionBox.Intersects(this.testBox))
+                if (spriteObject.position.Y > _graphics.PreferredBackBufferHeight || spriteObject.position.X > _graphics.PreferredBackBufferWidth)
                 {
-                    spriteObject.position.Y += 5;
-                    spriteObject.collisionBox.Y += 5;
+                    //ballSprites.Remove(spriteObject);
+                    continue;
                 }
+                
+                spriteObject.position.Y += 5;
+                spriteObject.collisionBox.Y += 5;
 
                 spriteObject.DrawSpriteObject(_spriteBatch);
             }
         }
 
-        private static void CreateBorder(Texture2D texture, int borderWidth, Color borderColor)
+        public static void CreateBorder(Texture2D texture, int borderWidth, Color borderColor)
         {
             Color[] colors = new Color[texture.Width * texture.Height];
 

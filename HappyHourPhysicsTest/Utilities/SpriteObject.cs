@@ -12,14 +12,24 @@ namespace HappyHourPhysicsTest.Utilities
     {
         public Texture2D spriteTexture;
         public Rectangle collisionBox;
+        public Rectangle spawnLocation;
         public Vector2 position;
         public bool isVisible;
 
         public SpriteObject(Game game, Texture2D spriteTexture, Rectangle collisionBox) : base(game)
+        {
+            this.spriteTexture = spriteTexture;
+            this.collisionBox = collisionBox;
+            this.spawnLocation = new Rectangle(0, 0, 0, 0);
+            this.position = new Vector2(480, 20);
+        }
+
+        public SpriteObject(Game game, Texture2D spriteTexture, Rectangle collisionBox, Rectangle spawnLocation) : base(game)
         { 
             this.spriteTexture = spriteTexture;
             this.collisionBox = collisionBox;
-            this.position = new Vector2(480, 20);
+            this.spawnLocation = spawnLocation;
+            this.position = GenerateObjectSpawnPosition();
         }
 
         public void DrawSpriteObject(SpriteBatch spriteBatch) 
@@ -32,14 +42,13 @@ namespace HappyHourPhysicsTest.Utilities
             spriteBatch.Draw(this.spriteTexture, this.position, Color.White);
         }
 
-        public override void Update(GameTime gameTime) 
-        {
-            if (!this.collisionBox.Intersects(new Rectangle(0,640,960,640)))
-            {
-                this.position.Y += 5;
-            }
-            
-            base.Update(gameTime);
+        private Vector2 GenerateObjectSpawnPosition() 
+        { 
+            Random random = new Random();
+            int spawnX = random.Next(spawnLocation.X, spawnLocation.X + spawnLocation.Width - 32);
+            int spawnY = random.Next(spawnLocation.Y, spawnLocation.Y + spawnLocation.Height);
+
+            return new Vector2(spawnX, spawnY);
         }
     }
 }
