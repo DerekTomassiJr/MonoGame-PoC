@@ -97,7 +97,6 @@ namespace HappyHourPhysicsTest
             _spriteBatch.Begin();
             this.activeLevel.DrawLevel(_spriteBatch);
             this.drawSpriteObjects();
-            //_spriteBatch.Draw(this.testBoxTexture, new Vector2(this.testBox.X, this.testBox.Y), Color.White); // Test code to show rectangle bounds
             _spriteBatch.End();
 
             base.Draw(gameTime);
@@ -107,13 +106,16 @@ namespace HappyHourPhysicsTest
         {
             foreach (SpriteObject spriteObject in ballSprites)
             {   
-                //spriteObject.position.Y += 5;
-                //spriteObject.collisionBox.Y += 5;
-
                 spriteObject.DrawSpriteObject(_spriteBatch);
             }
         }
 
+        /// <summary>
+        /// Debug function to help show rectangle bounds
+        /// </summary>
+        /// <param name="texture"></param>
+        /// <param name="borderWidth"></param>
+        /// <param name="borderColor"></param>
         public static void CreateBorder(Texture2D texture, int borderWidth, Color borderColor)
         {
             Color[] colors = new Color[texture.Width * texture.Height];

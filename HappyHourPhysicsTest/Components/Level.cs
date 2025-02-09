@@ -49,7 +49,7 @@ namespace HappyHourPhysicsTest.Components
 
             foreach (SpriteTile tile in this.levelTiles)
             {
-                System.Numerics.Vector2 tilePos = this.backgroundTextures.GetSpritePositionInAtlas(tile.ID);
+                Vector2 tilePos = this.backgroundTextures.GetSpritePositionInAtlas(tile.ID);
 
                 int width = this.backgroundTextures.SpriteWidth;
                 int height = this.backgroundTextures.SpriteHeight;
@@ -58,10 +58,6 @@ namespace HappyHourPhysicsTest.Components
                 Rectangle source = new Rectangle((int)tilePos.X, (int)tilePos.Y, width, height);
                 Rectangle destination = new Rectangle((int)tile.Position.X * width, (int)tile.Position.Y * height, width, height);
                 this.levelRects.Add(destination);
-
-                //Texture2D spriteTileBoxTexture = new Texture2D(GraphicsDevice, tile.TileCollisionBox.Width, tile.TileCollisionBox.Height);
-                //Game1.CreateBorder(spriteTileBoxTexture, 5, Color.Red);
-                //spriteBatch.Draw(spriteTileBoxTexture, new Vector2(tile.TileCollisionBox.X, tile.TileCollisionBox.Y), Color.White);
 
                 spriteBatch.Draw(this.backgroundTextures.Texture, destination, source, Color.White);
             }
@@ -75,11 +71,6 @@ namespace HappyHourPhysicsTest.Components
             {
                 throw new ArgumentException("The path provided cannot be null or whitespace.");
             }
-
-            //if (Uri.IsWellFormedUriString(filePath, UriKind.RelativeOrAbsolute))
-            //{
-            //    throw new ArgumentException("The path provided is invalid. Check the path provided and try again.");
-            //}
 
             List<SpriteTile> spriteTiles = new List<SpriteTile>();
 
