@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using nkast.Aether.Physics2D.Dynamics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,13 @@ namespace HappyHourPhysicsTest.Utilities
         public Rectangle collisionBox;
         public Rectangle spawnLocation;
         public Vector2 position;
+        public int radius;
+        public int density;
+        public Vector2 velocity;
         public bool isVisible;
+
+        public World world;
+        public Body objectBody;
 
         public SpriteObject(Game game, Texture2D spriteTexture, Rectangle collisionBox) : base(game)
         {
@@ -22,14 +29,20 @@ namespace HappyHourPhysicsTest.Utilities
             this.collisionBox = collisionBox;
             this.spawnLocation = new Rectangle(0, 0, 0, 0);
             this.position = new Vector2(480, 20);
+            this.objectBody = null;
         }
 
-        public SpriteObject(Game game, Texture2D spriteTexture, Rectangle collisionBox, Rectangle spawnLocation) : base(game)
+        public SpriteObject(Game game, Texture2D spriteTexture, Rectangle collisionBox, Rectangle spawnLocation, World world) : base(game)
         { 
             this.spriteTexture = spriteTexture;
             this.collisionBox = collisionBox;
             this.spawnLocation = spawnLocation;
             this.position = GenerateObjectSpawnPosition();
+            this.radius = 4;
+            this.density = 1;
+            this.velocity = new Vector2(0, 500);
+            this.world = world;
+            this.objectBody = GenerateObjectBody();
         }
 
         public void DrawSpriteObject(SpriteBatch spriteBatch) 
@@ -39,7 +52,7 @@ namespace HappyHourPhysicsTest.Utilities
                 return;
             }
 
-            spriteBatch.Draw(this.spriteTexture, this.position, Color.White);
+            spriteBatch.Draw(this.spriteTexture, this.objectBody.Position, Color.White);
         }
 
         private Vector2 GenerateObjectSpawnPosition() 
@@ -49,6 +62,14 @@ namespace HappyHourPhysicsTest.Utilities
             int spawnY = random.Next(spawnLocation.Y, spawnLocation.Y + spawnLocation.Height);
 
             return new Vector2(spawnX, spawnY);
+        }
+
+        private Body GenerateObjectBody() 
+        {
+            var body = world.CreateCircle(radius, density, position, BodyType.Dynamic);
+            body.LinearVelocity = velocity;
+
+            return body;
         }
     }
 }

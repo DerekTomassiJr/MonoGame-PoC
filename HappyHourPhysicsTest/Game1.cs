@@ -1,9 +1,13 @@
 ﻿using HappyHourPhysicsTest.Components;
 using HappyHourPhysicsTest.Utilities;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using nkast.Aether.Physics2D.Dynamics;
+using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace HappyHourPhysicsTest
 {
@@ -17,6 +21,7 @@ namespace HappyHourPhysicsTest
         private List<SpriteObject> ballSprites;
         private Level activeLevel;
 
+        private World world;
 
         public Game1()
         {
@@ -32,6 +37,9 @@ namespace HappyHourPhysicsTest
             _graphics.PreferredBackBufferHeight = 640;
             _graphics.ApplyChanges();
 
+            world = new World();
+            world.Gravity = new Vector2(0, 50);
+
             base.Initialize();
         }
 
@@ -45,9 +53,9 @@ namespace HappyHourPhysicsTest
             backgroundTextures = new TextureAtlas(this, blockTiles, 32, 32);
             itemTextures = new TextureAtlas(this, itemTiles, 32, 32);
 
-            ballSprite = this.itemTextures.GenerateSpriteObjectFromAtlas(7, GraphicsDevice);
+            ballSprite = this.itemTextures.GenerateSpriteObjectFromAtlas(7, GraphicsDevice);                                         
             ballSprites = new List<SpriteObject>();
-            activeLevel = new Level("Drink Pour", "../../../Content/Level1.csv", this.backgroundTextures, GraphicsDevice);
+            activeLevel = new Level("Drink Pour", "../../../Content/Level1.csv", this.backgroundTextures, GraphicsDevice, world);
         }
 
         protected override void Update(GameTime gameTime)
@@ -57,10 +65,16 @@ namespace HappyHourPhysicsTest
 
             if (Keyboard.GetState().IsKeyDown(Keys.S))
             {
-                SpriteObject newBall = new SpriteObject(this, ballSprite.spriteTexture, ballSprite.collisionBox, this.activeLevel.objectSpawnRectangle); // this needs to be reoptimized
-                newBall.isVisible = true;
-                ballSprites.Add(newBall); 
+                int spawnRate = 2;
+                for (int i = 0; i < spawnRate; i++)
+                {
+                    SpriteObject newBall = new SpriteObject(this, ballSprite.spriteTexture, ballSprite.collisionBox, this.activeLevel.objectSpawnRectangle, world); // this needs to be reoptimized
+                    newBall.isVisible = true;
+                    ballSprites.Add(newBall);
+                }
             }
+
+            world.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
 
             // Remove balls that fall off screen
             for (int i = 0; i < ballSprites.Count; i++)
@@ -72,7 +86,6 @@ namespace HappyHourPhysicsTest
                     ballSprites.Remove(spriteObject);
                 }
             }
-
 
             base.Update(gameTime);
         }
@@ -93,15 +106,9 @@ namespace HappyHourPhysicsTest
         private void drawSpriteObjects() 
         {
             foreach (SpriteObject spriteObject in ballSprites)
-            {
-                if (spriteObject.position.Y > _graphics.PreferredBackBufferHeight || spriteObject.position.X > _graphics.PreferredBackBufferWidth)
-                {
-                    //ballSprites.Remove(spriteObject);
-                    continue;
-                }
-                
-                spriteObject.position.Y += 5;
-                spriteObject.collisionBox.Y += 5;
+            {   
+                //spriteObject.position.Y += 5;
+                //spriteObject.collisionBox.Y += 5;
 
                 spriteObject.DrawSpriteObject(_spriteBatch);
             }
